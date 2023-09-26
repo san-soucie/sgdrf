@@ -89,7 +89,7 @@ Download = "https://pypi.org/project/sgdrf/"
 
 [tool.poetry.dependencies]
 # These are dependencies that are included in the main package
-python                   = "^3.8"
+python                   = ">=3.9,<4"
 typer                    = "^0.3"
 torch                    = "^2.0.1"
 pyro-ppl                 = "^1.8.6"
@@ -112,8 +112,8 @@ pre-commit               = "^2.15"
 pre-commit-hooks         = "^4.0"
 pytest                   = "^6.2"
 pytest-cov               = "^3.0"
-sphinx                   = "^4.0"
-sphinx-autoapi           = "^1.5"
+sphinx                   = "^7.2.6"
+sphinx-autoapi           = "^3.0"
 sphinx-copybutton        = "^0.4"
 sphinx-rtd-theme         = "^1.0"
 tomlkit                  = "^0.7"
@@ -342,11 +342,16 @@ target-version = ["py38", "py39"]
 line_length = 100
 profile = "black"
 
-[mypy]
+[tool.mypy]
 check_untyped_defs = true
 strict_optional = true
 
-
+[tool.mypy.overrides]
+module = [
+    "pyro",
+    "torch",
+]
+ignore_missing_imports = true
 # ------- THE FOLLOWING ARE NOT USED BY THEIR RESPECTIVE TOOLS  --------
 # --- There are open discussions about supporting pyproject for each ---
 # https://github.com/python/mypy/issues/5205
