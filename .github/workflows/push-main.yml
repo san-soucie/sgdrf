@@ -30,9 +30,6 @@ jobs:
       - name: Test with tox
         run: |
           tox -v
-      - name: Build the Docker image
-        run: |
-          docker build .
       - name: Update coveralls
         run: |
           pip install 'coveralls>=3,<4'
