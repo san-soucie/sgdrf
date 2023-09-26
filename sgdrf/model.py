@@ -363,11 +363,11 @@ class SGDRF(pyro.contrib.gp.Parameterized):
             The input observations, by default None
         """
         if xs is None or ws is None:
-            assert (xs is None) and (ws is None), "inputs do not agree"
+            if not ((xs is None) and (ws is None)):
+                raise RuntimeError("inputs do not agree")
         else:
-            assert not ((xs is None) and (ws is None)) and (
-                xs.size(0) == ws.size(0)
-            ), "inputs do not agree"
+            if not (not ((xs is None) and (ws is None)) and (xs.size(0) == ws.size(0))):
+                raise RuntimeError("inputs do not agree")
 
     def process_inputs(self, xs: Optional[torch.Tensor] = None, ws: Optional[torch.Tensor] = None):
         """Ingest new observations.
