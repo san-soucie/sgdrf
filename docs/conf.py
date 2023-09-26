@@ -70,6 +70,7 @@ autoapi_keep_files = True
 autoapi_python_class_content = "both"
 autoapi_member_order = "groupwise"
 autoapi_options = ["private-members", "undoc-members", "special-members"]
+autoapi_ignore = ["*/cli.py"]
 
 # The vast majority of Sphinx themes are unmaintained
 # This includes the commonly used alabaster theme
