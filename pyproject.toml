@@ -346,7 +346,7 @@ profile = "black"
 check_untyped_defs = true
 strict_optional = true
 
-[tool.mypy.overrides]
+[[tool.mypy.overrides]]
 module = [
     "pyro",
     "torch",
