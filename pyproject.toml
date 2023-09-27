@@ -90,7 +90,7 @@ Download = "https://pypi.org/project/sgdrf/"
 [tool.poetry.dependencies]
 # These are dependencies that are included in the main package
 python                   = ">=3.9,<4"
-typer                    = "^0.3"
+typer                    = ">=0.3,<0.10"
 torch                    = "^2.0.1"
 pyro-ppl                 = "^1.8.6"
 
