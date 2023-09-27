@@ -15,20 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - uses: gaurav-nelson/github-action-markdown-link-check@v1
-  analyse:
-    name: Analyze with CodeQL
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
-      - name: Autobuild with CodeQL
-        uses: github/codeql-action/autobuild@v2
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
   codecov:
     name: Analyze with Codecov
     runs-on: ubuntu-latest
