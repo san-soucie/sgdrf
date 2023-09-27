@@ -6,7 +6,10 @@ Sgdrf is licensed under the
 Feel free to direct a question to the authors by creating an [issue with the _question_ tag](https://github.com/san-soucie/sgdrf/issues/new?assignees=&labels=kind%3A+question&template=question.md).
 Contributors are asked to abide by both the [GitHub community guidelines](https://docs.github.com/en/github/site-policy/github-community-guidelines)
 and the [Contributor Code of Conduct, version 2.0](https://www.contributor-covenant.org/version/2/0/code_of_conduct/).
+#### Commits
 
+Commits must begin with a valid commit identifier. The full commit string should be in the following format:
+`(build|ci|docs|feat|fix|perf|refactor|style|test|chore|revert|bump)(\(\S+\))?!?:(\s.*)`
 #### Pull requests
 
 Please update `CHANGELOG.md` and add your name to the contributors in `pyproject.toml`
