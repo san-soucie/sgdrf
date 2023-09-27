@@ -48,6 +48,7 @@ docs/autoapi
 .tox/
 .pytest_cache
 .ipynb_checkpoints
+.mypy_cache
 
 # Files from other languages
 *.o
