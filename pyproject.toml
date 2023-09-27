@@ -128,7 +128,7 @@ mypy                     = "^0.910"
 # that Tyrannosaurus set up for your project
 hypothesis               = "^6"
 tyrannosaurus            = ">=0.10.4, <1.0"
-xdoctest                 = ">=0.15, <1.0"
+xdoctest                 = ">=0.15,<2.0"
 
 [tool.poetry.extras]
 # These are referenced in the tox.ini with `extras = dev`
