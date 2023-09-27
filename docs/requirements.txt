@@ -2,4 +2,4 @@ sphinx               >=7.2.6,<8.0
 sphinx-rtd-theme     >=1.0,<2.0
 sphinx-autoapi       >=3.0
 sphinx-copybutton    >=0.5.2,<1.0
-tomlkit              >=0.12.2,<1.0
+tomlkit              >=0.12.1,<1.0
