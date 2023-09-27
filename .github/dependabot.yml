@@ -11,8 +11,3 @@ updates:
     schedule:
       interval: weekly
     labels: ["kind: infrastructure"]
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    labels: ["kind: infrastructure"]
