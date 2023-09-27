@@ -11,11 +11,6 @@ updates:
     schedule:
       interval: weekly
     labels: ["kind: infrastructure"]
-  - package-ecosystem: docker
-    directory: /
-    schedule:
-      interval: weekly
-    labels: ["kind: infrastructure"]
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
