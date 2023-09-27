@@ -114,7 +114,7 @@ pytest                   = "^7.4"
 pytest-cov               = "^4.1"
 sphinx                   = "^7.2.6"
 sphinx-autoapi           = "^3.0"
-sphinx-copybutton        = "^0.4"
+sphinx-copybutton        = "^0.5"
 sphinx-rtd-theme         = "^1.0"
 tomlkit                  = "^0.12"
 
