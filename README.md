@@ -7,12 +7,9 @@
 [![Version on PyPi](https://img.shields.io/pypi/v/sgdrf)](https://pypi.org/project/sgdrf)
 [![Documentation status](https://readthedocs.org/projects/sgdrf/badge)](https://sgdrf.readthedocs.io/en/stable)
 [![Build (GitHub Actions)](https://img.shields.io/github/workflow/status/san-soucie/sgdrf/Build%20&%20test?label=Build%20&%20test)](https://github.com/san-soucie/sgdrf/actions)
-[![Build (Scrutinizer)](https://scrutinizer-ci.com/g/san-soucie/sgdrf/badges/build.png?b=main)](https://scrutinizer-ci.com/g/san-soucie/sgdrf/build-status/main)
 [![Test coverage (codecov)](https://codecov.io/github/san-soucie/sgdrf/coverage.svg)](https://codecov.io/gh/san-soucie/sgdrf)
-[![Test coverage (Scrutinizer)](https://scrutinizer-ci.com/g/san-soucie/sgdrf/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/san-soucie/sgdrf/?branch=main)
 [![Maintainability (Code Climate)](https://api.codeclimate.com/v1/badges/6b240648883c3a56c309/maintainability)](https://codeclimate.com/github/san-soucie/sgdrf/maintainability)
 [![CodeFactor](https://www.codefactor.io/repository/github/dmyersturnbull/tyrannosaurus/badge)](https://www.codefactor.io/repository/github/dmyersturnbull/tyrannosaurus)
-[![Code Quality (Scrutinizer)](https://scrutinizer-ci.com/g/san-soucie/sgdrf/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/san-soucie/sgdrf/?branch=main)
 [![Created with Tyrannosaurus](https://img.shields.io/badge/Created_with-Tyrannosaurus-0000ff.svg)](https://github.com/dmyersturnbull/tyrannosaurus)
 
 Python implementation of Streaming Gaussian Dirichlet Random Fields (San Soucie et al. 2023).
