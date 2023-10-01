@@ -7,33 +7,44 @@ on:
   repository_dispatch:
     types: [release-made]
 jobs:
-  build:
+  build_wheels:
+    name: Build wheels on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
-      max-parallel: 1
       matrix:
-        os: [ubuntu-20.04]
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
-    uses: ./.github/workflows/test.yml
-    with:
-      python-version: ${{ matrix.python-version }}
-      os: ${{ matrix.os }}
-  deploy:
-    needs: build
-    runs-on: ubuntu-20.04
+        os: [ubuntu-22.04, windows-2022, macos-11]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - name: Set up QEMU
+        if: runner.os == 'Linux'
+        uses: docker/setup-qemu-action@v1
         with:
-          python-version: 3.9
-      - name: Install build meta-dependencies
-        run: |
-          pip install poetry tox-gh>=1.2
-      - name: Build sdists and wheels with Poetry
-        run: |
-          poetry build
-          poetry install
-      - name: Publish to PyPi
-        run: |
-          poetry publish -vv --username __token__ --password ${{ secrets.PYPI_TOKEN }}
+          platforms: all
+
+      - name: Build wheels
+        uses: pypa/cibuildwheel@v2
+      - uses: actions/upload-artifact@v3
+        with:
+          path: ./wheelhouse/*.whl
+  build_sdist:
+    name: Build source distribution
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build sdist
+        run: pipx run build --sdist
+      - uses: actions/upload-artifact@v3
+        with:
+          path: dist/*.tar.gz
+  upload_pypi:
+    needs: [build_wheels, build_sdist]
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: artifact
+          path: dist
+      - uses: pypa/gh-action-pypi-publish@release/v1
