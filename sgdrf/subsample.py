@@ -1,3 +1,6 @@
+"""
+Wrapper for subsampling strategies.
+"""
 from enum import Flag, auto
 
 

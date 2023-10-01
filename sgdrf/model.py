@@ -1,3 +1,6 @@
+"""
+Implementation of SGDRF model.
+"""
 from typing import Collection, Dict, Optional, Union
 
 import pyro
@@ -20,6 +23,7 @@ from .optimizer import OptimizerType
 from .subsample import SubsampleType
 
 EPSILON = 1e-2
+TORCH_DEVICE_CPU = torch.device("cpu")
 
 
 class SGDRF(pyro.contrib.gp.Parameterized):
@@ -146,7 +150,7 @@ class SGDRF(pyro.contrib.gp.Parameterized):
         optimizer_type: OptimizerType = OptimizerType.Adam,
         optimizer_lr: float = 0.01,
         optimizer_clip_norm: float = 10.0,
-        device: torch.device = torch.device("cpu"),
+        device: torch.device = TORCH_DEVICE_CPU,
         subsample_n: int = 1,
         subsample_type: SubsampleType = SubsampleType.uniform,
         subsample_params: Optional[Dict[str, float]] = None,
@@ -155,7 +159,9 @@ class SGDRF(pyro.contrib.gp.Parameterized):
         num_particles: int = 1,
         jit: bool = False,
     ):
-        """"""
+        """
+        Implementation of SGDRF model.
+        """
         super().__init__()
 
         xu_dims = []

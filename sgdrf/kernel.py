@@ -1,3 +1,7 @@
+"""
+Wrapper for GP kernels.
+"""
+
 from enum import Enum, auto
 from typing import List, Optional
 
