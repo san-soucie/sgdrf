@@ -36,7 +36,7 @@ def info(n_seconds: float = 0.01, verbose: bool = False) -> None:
         typer.echo(str(metadata.__dict__))
     total = 0
     with typer.progressbar(range(100)) as progress:
-        for value in progress:
+        for _ in progress:
             time.sleep(n_seconds)
             total += 1
     typer.echo(f"Processed {total} things.")

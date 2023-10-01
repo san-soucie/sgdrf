@@ -1,3 +1,6 @@
+"""
+Wrapper for pyro optimizers.
+"""
 from enum import Enum, auto
 
 import pyro.optim as optim

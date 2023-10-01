@@ -4,6 +4,7 @@ Sphinx config file.
 Uses several extensions to get API docs and sourcecode.
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
+# mypy: ignore-errors
 
 from pathlib import Path
 from typing import Optional, Type, TypeVar

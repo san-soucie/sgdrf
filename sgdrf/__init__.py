@@ -10,7 +10,6 @@ import logging
 from importlib.metadata import PackageNotFoundError
 from importlib.metadata import metadata as __load
 from pathlib import Path
-from typing import Sequence
 
 from .kernel import KernelType
 from .model import SGDRF
@@ -45,7 +44,7 @@ class SgdrfAssets:
     """
 
     @classmethod
-    def path(cls, *nodes: Sequence[str]) -> Path:
+    def path(cls, *nodes: str) -> Path:
         """
         Gets the ``Path`` of an asset under ``resources``.
 
@@ -58,9 +57,13 @@ class SgdrfAssets:
         Raises:
             FileNotFoundError: If the path does not exist
         """
-        path = Path(__file__.parent, "resources", *nodes)
+        path = Path(__file__).parent
+        path /= "resources"
+        for node in nodes:
+            path /= node
         if not path.exists():
             raise FileNotFoundError(f"Asset {path} not found")
+        return path
 
 
 if __name__ == "__main__":  # pragma: no cover
