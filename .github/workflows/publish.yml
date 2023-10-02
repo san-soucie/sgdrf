@@ -11,6 +11,7 @@ jobs:
     name: Build wheel and upload
     runs-on: ubuntu-22.04
     steps:
+      - uses: actions/checkout@v4
       - uses: hynek/build-and-inspect-python-package@v1
       - uses: actions/download-artifact@v3
         with:
