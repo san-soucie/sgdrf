@@ -1,7 +1,7 @@
 cff-version: 1.1.0
 message: Software reference
 title: sgdrf
-version: 0.1.0
+version: 0.1.1
 abstract: Python implementation of Streaming Gaussian Dirichlet Random Fields (San Soucie et al. 2023)
 authors:
   -
