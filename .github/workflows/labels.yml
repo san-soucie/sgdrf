@@ -1,7 +1,6 @@
 name: labels
 on:
-  push:
-    branches: [main, master]
+  workflow_call:
 jobs:
   labels:
     name: DefaultLabelsActions
