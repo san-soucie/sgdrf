@@ -8,6 +8,8 @@ on:
     types: [release-made]
 jobs:
   build_wheels:
+    permissions:
+      id-token: write
     name: Build wheel and upload
     runs-on: ubuntu-22.04
     steps:
