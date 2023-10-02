@@ -153,10 +153,5 @@
     "name": "status: in upstream",
     "description": "Can’t fix until a dependency is fixed",
     "color": "#fefeee"
-  },
-  {
-    "name": "sticky note ☆",
-    "description": "☆ Important for reference even after it’s closed",
-    "color": "#ffee00"
   }
 ]
