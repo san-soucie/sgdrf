@@ -166,7 +166,7 @@ class ExponentialSubsampler(Subsampler):
             Tensor of topic probabilities of length `t`
         """
         exp_vals = self.exp * (
-            torch.arange(t + 1, device=self.device).type(torch.float)
+            torch.arange(t, device=self.device).type(torch.float)
             - torch.tensor(t, device=self.device, dtype=torch.float)
         )
         return normalize(torch.exp(exp_vals), p=1.0, dim=0)
@@ -205,7 +205,7 @@ class UniformSubsampler(Subsampler):
         torch.Tensor
             Tensor of topic probabilities of length `t`
         """
-        return normalize(torch.ones((t + 1,), device=self.device, dtype=torch.float), p=1.0, dim=0)
+        return normalize(torch.ones((t,), device=self.device, dtype=torch.float), p=1.0, dim=0)
 
 
 class LatestSubsampler(Subsampler):
@@ -241,6 +241,6 @@ class LatestSubsampler(Subsampler):
         torch.Tensor
             Tensor of topic probabilities of length `t`
         """
-        arr = torch.zeros((t + 1,), device=self.device, dtype=torch.float)
+        arr = torch.zeros((t,), device=self.device, dtype=torch.float)
         arr[-1] += 1.0
         return normalize(arr, p=1.0, dim=0)
