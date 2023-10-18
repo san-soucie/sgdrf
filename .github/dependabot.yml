@@ -6,8 +6,16 @@ updates:
     schedule:
       interval: weekly
     labels: ["kind: infrastructure"]
+    groups:
+      pip-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
     labels: ["kind: infrastructure"]
+    groups:
+      gh-actions-dependencies:
+        patterns:
+          - "*"
