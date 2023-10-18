@@ -18,7 +18,7 @@ from pyro.contrib.gp.util import conditional
 from pyro.nn.module import PyroParam, pyro_method
 
 from .sgdrf_config import SGDRFConfig
-from .subsample import Subsampler
+from .subsample import Subsampler  # noqa: F401
 
 EPSILON = 1e-2
 TORCH_DEVICE_CPU = torch.device("cpu")
@@ -123,13 +123,15 @@ class SGDRF(pyro.contrib.gp.Parameterized):
         self.uscaletril = PyroParam(
             pyro.distributions.util.eye_like(self.xu, self.M).repeat(self.latent_shape + (1, 1)),
             constraint=dist.constraints.stack(
-                [dist.constraints.lower_cholesky for _ in range(K)], dim=-3
+                [dist.constraints.lower_cholesky for _ in range(config.K)], dim=-3
             ),
             event_dim=None,
         )
         self.word_topic_probs = PyroParam(
             self.dir_p,
-            constraint=dist.constraints.stack([dist.constraints.simplex for _ in range(K)], dim=-2),
+            constraint=dist.constraints.stack(
+                [dist.constraints.simplex for _ in range(config.K)], dim=-2
+            ),
             event_dim=None,
         )
         self.kernel = config.kernel
@@ -145,7 +147,7 @@ class SGDRF(pyro.contrib.gp.Parameterized):
         self.xs = torch.empty(
             0, *self.xu.shape[1:], device=config.device, dtype=torch.float
         )  # type: ignore
-        self.ws = torch.empty(0, self.V, device=device, dtype=torch.int)  # type: ignore
+        self.ws = torch.empty(0, self.V, device=config.device, dtype=torch.int)  # type: ignore
         self.optimizer = config.optimizer
         self.svi = pyro.infer.SVI(self.model, self.guide, self.optimizer, self.objective)
         self.fail_on_nan_loss = config.fail_on_nan_loss

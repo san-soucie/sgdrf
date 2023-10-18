@@ -1,3 +1,4 @@
+"""Config for SGDRFs."""
 from dataclasses import dataclass
 from typing import Collection, Union
 
