@@ -31,7 +31,7 @@ name = "sgdrf"
 # E.g. This might be "1.2.13", and the GitHub release will be "v1.2.13".
 # Although semantic versioning allows for build tags (metadata),
 # not all tools are compatible with it, so avoid it if you can.
-version = "0.2.0"
+version = "0.2.1"
 
 description = "Python implementation of Streaming Gaussian Dirichlet Random Fields (San Soucie et al. 2023)"
 keywords = ["gaussian_process", "statistics"]
