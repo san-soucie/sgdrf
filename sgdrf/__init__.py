@@ -11,10 +11,15 @@ from importlib.metadata import PackageNotFoundError
 from importlib.metadata import metadata as __load
 from pathlib import Path
 
-from .kernel import KernelType
 from .model import SGDRF
-from .optimizer import OptimizerType
-from .subsample import SubsampleType
+from .sgdrf_config import SGDRFConfig
+from .subsample import (
+    ExponentialSubsampler,
+    LatestSubsampler,
+    MixingSubsampler,
+    Subsampler,
+    UniformSubsampler,
+)
 
 pkg = Path(__file__).absolute().parent.name
 logger = logging.getLogger(pkg)
@@ -35,7 +40,15 @@ try:
 except PackageNotFoundError:  # pragma: no cover
     logger.error(f"Could not load package metadata for {pkg}. Is it installed?")
 
-__all__ = ["SGDRF", "KernelType", "SubsampleType", "OptimizerType"]
+__all__ = [
+    "SGDRF",
+    "SGDRFConfig",
+    "Subsampler",
+    "MixingSubsampler",
+    "LatestSubsampler",
+    "UniformSubsampler",
+    "ExponentialSubsampler",
+]
 
 
 class SgdrfAssets:
